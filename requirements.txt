@@ -1,0 +1,4 @@
+discord.py
+requests
+psutil
+firebase_admin
