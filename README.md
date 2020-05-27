@@ -148,4 +148,10 @@ Assets are hosted by Netlify and GitHub.
 **Rebrand.ly** is a service/brand which belongs to Radiate Capital Limited
 
 
+
+
+### Support Discord Server
+I don't have a dedicated support discord server though you can enter my personal discord server and ask me anything:
+[Anime no Sekai Discord Server](https://discord.com/invite/cgZWWdQ)
+
 > ©Anime no Sekai - 2020 ✨
