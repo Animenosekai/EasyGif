@@ -47,8 +47,8 @@ EasyGif won't live long without the help of its dependencies and awesome modules
 > Can be installed using `PIP` (the python package manager) through the command: `pip install requests`
 - Discord.py *(basically what makes the bot running and communicating with discord)*
 > Can be installed using `PIP` through the command: `pip install discord.py`
-- Firebase Admin SDK *(to manage the database)*
-> Can be installed using `PIP` through the command: `pip install firebase-admin`
+- Firebase Admin SDK *(to manage and communicate with the database)*
+> Can be installed using `PIP` through the command: `pip install firebase_admin`
 
 > You could install psutil through `pip install psutil` but you won't be able to test it because the `.easygif_masterlogs` is restricted to me. 
 
