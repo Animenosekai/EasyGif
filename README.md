@@ -1,8 +1,10 @@
 # EasyGif
- A quick gif sending discord bot written in python
+![EasyGif Logo](https://easygif-assets.netlify.app/assets/public/logos/easygif/easygif_logo.jpg)
+ 
+ ### **A quick gif sending discord bot written in python**
 
 ## Invite Link
-https://bit.ly/invite-easygif
+**https://bit.ly/invite-easygif**
 
 > Or simply type `.gifinvite` if you already have it in your discord server.
 
@@ -52,6 +54,30 @@ EasyGif won't live long without the help of its dependencies and awesome modules
 
 > You could install psutil through `pip install psutil` but you won't be able to test it because the `.easygif_masterlogs` is restricted to me. 
 
+### APIs and Documentations
+Service | Documentations
+------------ | -------------
+Firebase | [**Firebase Admin SDK Documentations**](https://firebase.google.com/docs/database/admin/start)
+Heroku | [**Heroku Documentations**](https://devcenter.heroku.com/categories/reference)
+discord.py | [**discord.py Documentations**](https://discordpy.readthedocs.io/en/latest/index.html#)
+Discord (API) | [**Discord Developper Portal**](https://discord.com/developers/docs/intro)
+Requests | [**Requests Library Docs**](https://requests.readthedocs.io/en/master/)
+Psutil | [**psutil Library Docs**](https://psutil.readthedocs.io/en/latest/)
+Python 3 | [**Python 3.8.3 Docs**](https://docs.python.org/3/)
+
+### Versions
+Here are the versions used for EasyGif's development.
+
+Service | Version
+------------ | -------------
+Firebase | **Version 4.3.0**
+discord.py | **Version 1.3.3**
+Requests | **Version 2.23.0**
+Psutil | **Version 5.7.0**
+Python 3 | **Version 3.8.1**
+
+The bot is currently on version: **`v1.5`**
+
 #### Firebase
 EasyGif records every GIF request made *(including with `.gifchange`)* in a Firebase Real-Time Database for statistical purposes (when you type `.gifstats`) but for nothing else (not even for my stats).
 
@@ -64,3 +90,9 @@ All of your data can be cleared from the database using `.gifstats_clear`
 
 - Assets used frequently *(such as the Giphy logo and the Tenor logo, used in every GIF requests for legal reasons)* are stored in a website made for EasyGif assets only.
 
+
+## Copyrights
+**EasyGif's logo is not my property and can be taken down at any time if the legal owner wants to do so.**
+
+
+> ©Anime no Sekai - 2020
