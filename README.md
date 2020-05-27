@@ -95,6 +95,9 @@ Python 3 | **Version 3.8.1**
 
 The bot is currently on version: **`v1.5`**
 
+#### Commands
+Common commands mistypes are handled.
+
 #### Firebase
 EasyGif records every GIF request made *(including with `.gifchange`)* in a Firebase Real-Time Database for statistical purposes (when you type `.gifstats`) but for nothing else (not even for my stats).
 
