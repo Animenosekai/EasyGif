@@ -45,6 +45,17 @@ EasyGif is in constant development and fixes are made on a regular basis (but I 
 
 If you want to help us and join me here is a quick guide.
 
+### Files
+`easygif.py` is the bot
+
+`requirements.txt` is a text file which tells to Heroku what are the different dependencies.
+
+`Procfile` is a text file used by Heroku to know what is the file to run 24/24 (with a worker)
+
+`README.md` is the text file you're currently reading, with all the documentations and explanations about the bot.
+
+`LICENSE` is a text file with the EasyGif's license
+
 #### Dependencies
 EasyGif won't live long without the help of its dependencies and awesome modules that others made, which includes:
 - Requests *(To make HTTP requests to the different API EasyGif uses)*
