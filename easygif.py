@@ -535,7 +535,7 @@ async def gifhelp(context):
     print('')
     print(f"→ Help request came from the server: {context.guild}  (user: {context.author})")
     embed = discord.Embed(title='EasyGif Help Center', colour=discord.Colour.blue())
-    embed.add_field(name='Available Commands', value="`.gif <search term>`: Searches a GIF on Giphy or Tenor (50% of chance for each) with the term you provided and sends it.\n`.gifrandom`: Sends a random GIF.\n`.gifchange`: Changes your last sent GIF.\n`.gifdelete`: Deletes the last sent GIF.\n`.gifstats`: Gives you your EasyGif's stats.\n`.gifstats_clear`: Clears your data from my database\n`.gifinvite`: Gives you a link to invite EasyGif on any discord server.\n`.easygifstats`: Gives EasyGif bot stats\n`.gifhelp`: Sends the message you are currently reading.")
+    embed.add_field(name='Available Commands', value="`.gif <search term>`: Searches a GIF on Giphy or Tenor (50% of chance for each) with the term you provided and sends it.\n`.gifrandom`: Sends a random GIF.\n`.gifchange`: Changes your last sent GIF.\n`.gifdelete`: Deletes the last sent GIF.\n`.gifstats`: Gives you your EasyGif's stats.\n`.gifstats_clear`: Clears your data from my database\n`.gifinvite`: Gives you a link to invite EasyGif on any discord server.\n`.easygifstats`: Gives EasyGif bot stats\n`.easygif_dev`: Gives you a link to easygif github repo.\n`.gifhelp`: Sends the message you are currently reading.")
     embed.set_author(name=f"Requested by {context.author}")
     embed.set_footer(text="EasyGif by Anime no Sekai - 2020")
     await context.send(embed=embed)
@@ -639,6 +639,11 @@ async def dev_easygif(context):
     
 @client.command(pass_context=True)
 async def development_easygif(context):
+    await easygif_development(context)
+    
+    
+@client.command(pass_context=True)
+async def easygif_dev(context):
     await easygif_development(context)
     
 def get_size(bytes, suffix="B"):
