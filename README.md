@@ -21,12 +21,17 @@ But it has also cool features!
 - Write `.gifchange` to change the last gif you sent with EasyGif *(yea if you didn't like it)*
 - Write `.gifdelete` to delete the last gif you sent with EasyGif *(if you made an oopsie)*
 
+More commands could be found using `.gifhelp` in a discord server where the bot already got invited.
+
 ### Provider
 EasyGif uses currently two providers: Giphy and Tenor GIF.
 
 Each gif provider has 50% of chance of being the one chosen for your gif.
 
 GIFs from your search term are chosen using the search API endpoint for each provider and chosing randomly between the first 10 GIFs results *(to give it more diversity)*
+
+
+Using `.gifrandom` you have a 25% percent of chance of having a random anime gif.
 
 ## Development
 
@@ -55,7 +60,7 @@ All of your data can be cleared from the database using `.gifstats_clear`
 #### Servers
 - The bot is hosted with Heroku *(the free plan lol)*
 
-> Therefore, **you won't find any key in the source code of EasyGif** (every key is stored with config variables directly on Heroku) (even the firebase authentificating file name).
+> Therefore, **you won't find any key in the source code of EasyGif** (every key is stored with config variables directly on Heroku) *(even the firebase authentificating file name)*.
 
 - Assets used frequently *(such as the Giphy logo and the Tenor logo, used in every GIF requests for legal reasons)* are stored in a website made for EasyGif assets only.
 
