@@ -95,4 +95,4 @@ All of your data can be cleared from the database using `.gifstats_clear`
 **EasyGif's logo is not my property and can be taken down at any time if the legal owner wants to do so.**
 
 
-> ©Anime no Sekai - 2020
+> ©Anime no Sekai - 2020 ✨
