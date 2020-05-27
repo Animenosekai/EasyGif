@@ -90,9 +90,27 @@ All of your data can be cleared from the database using `.gifstats_clear`
 
 - Assets used frequently *(such as the Giphy logo and the Tenor logo, used in every GIF requests for legal reasons)* are stored in a website made for EasyGif assets only.
 
+Assets are hosted by Netlify and GitHub.
 
-## Copyrights
+
+## Copyrights and Legals
 **EasyGif's logo is not my property and can be taken down at any time if the legal owner wants to do so.**
+
+**Giphy** is a brand which belongs to Giphy, Inc.
+
+**Tenor GIF** is a brand which belongs to Tenor, Inc.
+
+**Firebase** is a brand which belongs to Google, Inc.
+
+**Heroku** is a brand which belongs to Salesforce, Inc.
+
+**Netlify** is a brand which belongs to Netlify Co.
+
+**GitHub** is a brand which belongs to GitHub, Inc. (Microsoft)
+
+**Discord** is a brand which belongs to Discord, Inc.
+
+**Python** belongs to the Python Software Foundation
 
 
 > ©Anime no Sekai - 2020 ✨
