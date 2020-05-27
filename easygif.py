@@ -611,7 +611,36 @@ async def gifdonates(context):
 @client.command(pass_context=True)
 async def easygif_donate(context):
     await gifdonate(context)
+    
 
+@client.command(pass_context=True)
+async def easygif_development(context):
+    print(f"→ Development links request came from the server: {context.guild}  (user: {context.author})")
+    await context.message.add_reaction(emoji=roger_reaction)
+    await context.send(content="Thank's for having interest in the development of EasyGif!")
+    await asyncio.sleep(random.uniform(0.8, 1.3))
+    donatelink_embed = discord.Embed(title='GitHub Repository', colour=discord.Colour.blue())
+    donatelink_embed.add_field(name='**GitHub**', value="https://github.com/Animenosekai/EasyGif")
+    donatelink_embed.set_footer(text="©Anime no Sekai - Thank you for using EasyGif!")
+    await context.send(embed=donatelink_embed)
+    print(f"← Development links sent on {context.guild} to {context.author}")
+  
+@client.command(pass_context=True)
+async def gifdevelopment(context):
+    await easygif_development(context)
+
+@client.command(pass_context=True)
+async def gifdev(context):
+    await easygif_development(context)
+    
+@client.command(pass_context=True)
+async def dev_easygif(context):
+    await easygif_development(context)
+    
+@client.command(pass_context=True)
+async def development_easygif(context):
+    await easygif_development(context)
+    
 def get_size(bytes, suffix="B"):
     """
     Scale bytes to its proper format
