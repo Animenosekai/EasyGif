@@ -61,9 +61,26 @@ Firebase | [**Firebase Admin SDK Documentations**](https://firebase.google.com/d
 Heroku | [**Heroku Documentations**](https://devcenter.heroku.com/categories/reference)
 discord.py | [**discord.py Documentations**](https://discordpy.readthedocs.io/en/latest/index.html#)
 Discord (API) | [**Discord Developper Portal**](https://discord.com/developers/docs/intro)
+Giphy | [**Giphy API Documentations**](https://developers.giphy.com/docs/api#quick-start-guide)
+Tenor | [**Tenor GIF API Documentations**](https://tenor.com/gifapi/documentation)
+Rebrand.ly | [**Rebrand.ly API Documentations**](https://developers.rebrandly.com/docs)
 Requests | [**Requests Library Docs**](https://requests.readthedocs.io/en/master/)
 Psutil | [**psutil Library Docs**](https://psutil.readthedocs.io/en/latest/)
 Python 3 | [**Python 3.8.3 Docs**](https://docs.python.org/3/)
+
+- Firebase is used to host the database
+- Heroku is used to host the bot (for the bot to run 24/24)
+- discord.py is used to communicate with Discord's servers and contains multiple discord related functions
+- Discord is used to... well is used by you primarily but also by us to configure the bot
+- Giphy API is used to search and provide gifs
+- Tenor API is used to search and provide gifs
+- Rebrand.ly API is used to make gif link for `.gifstats` much shorter
+- Requests Python Library is used to make HTTP requests
+- Psutil Python Library is used by me to know if the system is running correctly
+- Python is the programming language used to make the bot
+- Netlify is used to host the assets
+- GitHub is used to host assets and code
+
 
 ### Versions
 Here are the versions used for EasyGif's development.
@@ -111,6 +128,8 @@ Assets are hosted by Netlify and GitHub.
 **Discord** is a brand which belongs to Discord, Inc.
 
 **Python** belongs to the Python Software Foundation
+
+**Rebrand.ly** is a service/brand which belongs to Radiate Capital Limited
 
 
 > ©Anime no Sekai - 2020 ✨
