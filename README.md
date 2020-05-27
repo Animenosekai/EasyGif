@@ -41,6 +41,8 @@ Using `.gifrandom` you have a 25% percent of chance of having a random anime gif
 
 EasyGif is in constant development and fixes are made on a regular basis (but I also try to add some new features ehe)
 
+#### If you have any issues, questions, development problem: feel free to ask in the issues section.
+
 If you want to help us and join me here is a quick guide.
 
 #### Dependencies
