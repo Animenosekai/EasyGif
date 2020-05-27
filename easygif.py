@@ -556,7 +556,7 @@ async def easygifstats(context):
     users = str(len(client.users))
     embed = discord.Embed(title='EasyGif Bot Stats', colour=discord.Colour.blue())
     embed.add_field(name='Stats', value=f"Version: **EasyGif v.1.5**\nPing/Latency: **{latency}ms**\nNumber of servers: **{number_of_servers_easygif_is_in}**\nNumber of users: **{users}**\nDeveloper: **Anime no Sekai**\nProgramming Language: **Python**")
-    embed.add_field(name='Powered by', value="Giphy\nTenor GIF\nHeroku\nGoogle Firebase\nRequests Python Library\ndiscord.py Python Library\nRebrand.ly")
+    embed.add_field(name='Powered by', value="Giphy\nTenor GIF\nHeroku\nGoogle Firebase\nRequests Python Library\ndiscord.py Python Library\nRebrand.ly\nNetlify\nGitHub\nDiscord")
     await context.send(embed=embed)
     print(f"← EasyGif Bot Stats sent on {context.guild} to {context.author}")
     await context.message.delete()
