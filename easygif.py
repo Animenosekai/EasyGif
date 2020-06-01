@@ -663,7 +663,7 @@ def get_size(bytes, suffix="B"):
 async def easygif_masterlogs(context):
     print('')
     print(f"→ Logs request came from the server: {context.guild}  (user: {context.author})") #LOG
-    if context.author.id == os.environ['anise-discord-uid']: #IF ME
+    if context.author.id == int(os.environ['anise-discord-uid']): #IF ME
         # STATUS AND LOG
         status = await context.send(content='Preparing your logs, master!')
         print(f" -- Successfully authenticated as EasyGif dev -- ")
