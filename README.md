@@ -1,5 +1,5 @@
 # EasyGif
-![EasyGif Logo](https://easygif-assets.netlify.app/assets/public/logos/easygif/easygif_logo.jpg)
+[![EasyGif Logo](https://easygif-assets.netlify.app/assets/public/logos/easygif/easygif_logo.jpg)](https://bit.ly/invite-easygif)
  
  ### **A quick gif sending discord bot written in python**
 
