@@ -782,7 +782,7 @@ async def easygif_masterlogs(context):
         except:
             await status.edit(content='❌ An error occured while looking for network interfaces informations!')
         # SEND EVERYTHING
-        master = client.get_user(os.environ['anise-discord-uid'])
+        master = client.get_user(int(os.environ['anise-discord-uid']))
         await master.send(content='Here are your logs, master!')
         await master.send(embed=embed_apikeys)
         await master.send(embed=embed_systeminfo_system)
