@@ -177,9 +177,12 @@ async def gifrandom(context):
         user_node.push().set(data) # SENDING THE DATA AS A NEW NODE IN THE DATABASE
 
     elif provider == 1: # TENOR GIF (RANDOM ANIME GIF)
-        response = requests.get('https://api.tenor.com/v1/search?q=anime&key=' + os.environ['tenor-api-key'] + '&limit=10')
+        random_search_key = ['anime', 'manga', 'japan', 'japanese+animation', 'menhera']
+        choosing_from_random_search_key = random.randint(0,len(random_search_key) - 1)
+        random_search_term = random_search_key[choosing_from_random_search_key]
+        response = requests.get('https://api.tenor.com/v1/search?q=' + random_search_term + '&key=' + os.environ['tenor-api-key'] + '&limit=50')
         data = json.loads(response.text)
-        gif_choice = random.randint(0, 9)
+        gif_choice = random.randint(0, 49)
         result_gif = data['results'][gif_choice]['media'][0]['gif']['url']
 
         embed.set_image(url=result_gif)
@@ -555,7 +558,7 @@ async def easygifstats(context):
     latency = round(client.latency * 1000,2)
     users = str(len(client.users))
     embed = discord.Embed(title='EasyGif Bot Stats', colour=discord.Colour.blue())
-    embed.add_field(name='Stats', value=f"Version: **EasyGif v.1.5**\nPing/Latency: **{latency}ms**\nNumber of servers: **{number_of_servers_easygif_is_in}**\nNumber of users: **{users}**\nDeveloper: **Anime no Sekai**\nProgramming Language: **Python**")
+    embed.add_field(name='Stats', value=f"Version: **EasyGif v.1.6**\nPing/Latency: **{latency}ms**\nNumber of servers: **{number_of_servers_easygif_is_in}**\nNumber of users: **{users}**\nDeveloper: **Anime no Sekai**\nProgramming Language: **Python**")
     embed.add_field(name='Powered by', value="Giphy\nTenor GIF\nHeroku\nGoogle Firebase\nRequests Python Library\ndiscord.py Python Library\nRebrand.ly\nNetlify\nGitHub\nDiscord")
     await context.send(embed=embed)
     print(f"← EasyGif Bot Stats sent on {context.guild} to {context.author}")

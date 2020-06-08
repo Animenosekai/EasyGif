@@ -106,7 +106,7 @@ Requests | **Version 2.23.0**
 Psutil | **Version 5.7.0**
 Python 3 | **Version 3.8.1**
 
-The bot is currently on version: **`v1.5`**
+The bot is currently on version: **`v1.6`**
 
 #### Commands
 Common commands mistypes are handled with functions written with mistypes that redirects to the main function.
