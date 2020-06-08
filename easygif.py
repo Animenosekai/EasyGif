@@ -645,7 +645,11 @@ async def development_easygif(context):
 @client.command(pass_context=True)
 async def easygif_dev(context):
     await easygif_development(context)
-    
+
+@client.command(pass_context=True)
+async def easygif_dev_servers(context):
+    print(client.guilds)
+
 def get_size(bytes, suffix="B"):
     """
     Scale bytes to its proper format
