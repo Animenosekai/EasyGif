@@ -17,7 +17,7 @@ from discord.ext import commands  # to get discord commands
 from discord.utils import escape_markdown
 
 from config import (COMMAND_PREFIX, DEBUG_MODE, EASYGIF_VERSION, GIPHY_RANDOM_ENDPOINT,
-                    GIPHY_SEARCH_ENDPOINT, RANDOM_DICTIONARY, ROGER_REACTION,
+                    GIPHY_SEARCH_ENDPOINT, RANDOM_DICTIONARY, ROGER_REACTION, SFW_GIPHY_RANDOM_ENDPOINT, SFW_GIPHY_SEARCH_ENDPOINT, SFW_TENOR_RANDOM_ENDPOINT, SFW_TENOR_SEARCH_ENDPOINT,
                     TENOR_RANDOM_ENDPOINT, TENOR_SEARCH_ENDPOINT)
 from models.embed import Embed
 from models.provider import Giphy, Tenor
@@ -32,10 +32,9 @@ from utils.mongo import mongo_users
 from utils.request import Request
 from utils.sanitize import url_encode
 from utils.short import create_short_url
-from __protected import DISCORD_BOT_TOKEN
 
 ### DEFINING CLIENT/BOT AND ITS PREFIX 
-client = commands.Bot(command_prefix=COMMAND_PREFIX)
+client = commands.Bot(command_prefix=COMMAND_PREFIX, case_insensitive=True)
 
 # WHEN THE BOT IS UP
 @client.event
@@ -67,13 +66,20 @@ async def gif(context):
         log("→ '.gif {query}' came from the server {server} (user: {user})".format(query=_search, server=context.guild, user=context.author))
 
         results = None
+        channel_is_nsfw = context.channel.is_nsfw()
         for _ in range(3): # try 3 times
             if random.randint(0, 1) == 0: # GIPHY
                 provider = Giphy()
-                req = Request(GIPHY_SEARCH_ENDPOINT.format(query=search))
+                if not channel_is_nsfw:
+                    req = Request(SFW_GIPHY_SEARCH_ENDPOINT.format(query=search))
+                else:
+                    req = Request(GIPHY_SEARCH_ENDPOINT.format(query=search))
             else: # TENOR
                 provider = Tenor()
-                req = Request(TENOR_SEARCH_ENDPOINT.format(query=search))
+                if not channel_is_nsfw:
+                    req = Request(SFW_TENOR_SEARCH_ENDPOINT.format(query=search))
+                else:
+                    req = Request(TENOR_SEARCH_ENDPOINT.format(query=search))
             results = Results(query=_search, results=req.json, provider=provider)
 
             if len(results.results) < 1:
@@ -111,13 +117,20 @@ async def gifrandom(context):
         log("→ '.gifrandom' came from the server {server} (user: {user})".format(server=context.guild, user=context.author))
 
         results = None
+        channel_is_nsfw = context.channel.is_nsfw()
         for _ in range(5): # try 5 times
             if random.randint(0, 1) == 0: # GIPHY
                 provider = Giphy()
-                req = Request(GIPHY_RANDOM_ENDPOINT, cache=False)
+                if not channel_is_nsfw:
+                    req = Request(SFW_GIPHY_RANDOM_ENDPOINT, cache=False)
+                else:
+                    req = Request(GIPHY_RANDOM_ENDPOINT, cache=False)
             else: # TENOR
                 provider = Tenor()
-                req = Request(TENOR_RANDOM_ENDPOINT.format(query=random.choice(RANDOM_DICTIONARY)))
+                if not channel_is_nsfw:
+                    req = Request(SFW_TENOR_RANDOM_ENDPOINT.format(query=random.choice(RANDOM_DICTIONARY)))
+                else:
+                    req = Request(TENOR_RANDOM_ENDPOINT.format(query=random.choice(RANDOM_DICTIONARY)))
             results = Results(query=None, results=req.json, provider=provider, random=True)
 
             if len(results.results) < 1:
@@ -152,7 +165,7 @@ def get_last_message(context):
     else:
         return user_data["responses"][0]
 
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["gifdeletes"])
 async def gifdelete(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -182,8 +195,7 @@ async def gifdelete(context):
         await error_handler(context=context, error=err)
 
 
-
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["gifchanges"])
 async def gifchange(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -205,16 +217,23 @@ async def gifchange(context):
 
 
         update_data = {"timestamp": now}
+        channel_is_nsfw = context.channel.is_nsfw()
 
         if data["searchTerm"] is None:
             results = None
             for _ in range(5): # try 5 times
                 if random.randint(0, 1) == 0: # GIPHY
                     provider = Giphy()
-                    req = Request(GIPHY_RANDOM_ENDPOINT, cache=False)
+                    if not channel_is_nsfw:
+                        req = Request(SFW_GIPHY_RANDOM_ENDPOINT, cache=False)
+                    else:
+                        req = Request(GIPHY_RANDOM_ENDPOINT, cache=False)
                 else: # TENOR
                     provider = Tenor()
-                    req = Request(TENOR_RANDOM_ENDPOINT.format(query=random.choice(RANDOM_DICTIONARY)))
+                    if not channel_is_nsfw:
+                        req = Request(SFW_TENOR_RANDOM_ENDPOINT.format(query=random.choice(RANDOM_DICTIONARY)))
+                    else:
+                        req = Request(TENOR_RANDOM_ENDPOINT.format(query=random.choice(RANDOM_DICTIONARY)))
                 update_data["provider"] = provider.provider
                 results = Results(query=None, results=req.json, provider=provider, random=True)
 
@@ -234,10 +253,16 @@ async def gifchange(context):
             for _ in range(3): # try 3 times
                 if random.randint(0, 1) == 0: # GIPHY
                     provider = Giphy()
-                    req = Request(GIPHY_SEARCH_ENDPOINT.format(query=search))
+                    if not channel_is_nsfw:
+                        req = Request(SFW_GIPHY_SEARCH_ENDPOINT.format(query=search))
+                    else:
+                        req = Request(GIPHY_SEARCH_ENDPOINT.format(query=search))
                 else: # TENOR
                     provider = Tenor()
-                    req = Request(TENOR_SEARCH_ENDPOINT.format(query=search))
+                    if not channel_is_nsfw:
+                        req = Request(SFW_TENOR_SEARCH_ENDPOINT.format(query=search))
+                    else:
+                        req = Request(TENOR_SEARCH_ENDPOINT.format(query=search))
                 update_data["provider"] = provider.provider
                 results = Results(query=data["searchTerm"], results=req.json, provider=provider)
 
@@ -268,17 +293,7 @@ async def gifchange(context):
     except Exception as err:
         await error_handler(context=context, error=err)
 
-
-@client.command(pass_context=True)
-async def gifdeletes(context):
-    await gifdelete(context)
-
-@client.command(pass_context=True)
-async def gifchanges(context):
-    await gifchange(context)
-
-
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["gifstat"])
 async def gifstats(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -331,11 +346,7 @@ async def gifstats(context):
     except Exception as err:
         await error_handler(context=context, error=err)
 
-@client.command(pass_context=True)
-async def gifstat(context):
-    await gifstats(context)
-
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["gifclears"])
 async def gifclear(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -352,9 +363,7 @@ async def gifclear(context):
     except Exception as err:
         await error_handler(context=context, error=err)
 
-
-
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["gifhelps"])
 async def gifhelp(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -373,11 +382,7 @@ async def gifhelp(context):
         await error_handler(context=context, error=err)
 
 
-@client.command(pass_context=True)
-async def gifhelps(context):
-    await gifhelp(context)
-
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["easygifstat"])
 async def easygifstats(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -400,20 +405,7 @@ async def easygifstats(context):
     except Exception as err:
         await error_handler(context=context, error=err)
 
-
-@client.command(pass_context=True)
-async def easygif_stats(context):
-    await easygifstats(context)
-
-@client.command(pass_context=True)
-async def easygif_stat(context):
-    await easygifstats
-
-@client.command(pass_context=True)
-async def easygifstat(context):
-    await easygifstats
-
-@client.command(pass_context=True)
+@client.command(pass_context=True, aliases=["gifinvites"])
 async def gifinvite(context):
     try:
         await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
@@ -427,10 +419,3 @@ async def gifinvite(context):
 
     except Exception as err:
         await error_handler(context=context, error=err)
-    
-@client.command(pass_context=True)
-async def gifinvites(context):
-    await gifinvite(context)
-
-
-client.run(DISCORD_BOT_TOKEN)
