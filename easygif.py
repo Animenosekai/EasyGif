@@ -84,6 +84,8 @@ async def gif(context):
 
             if len(results.results) < 1:
                 results = None
+            else:
+                break
 
         if results is None:
             raise exceptions.NoResult("We couldn't find any result")
@@ -135,6 +137,8 @@ async def gifrandom(context):
 
             if len(results.results) < 1:
                 results = None
+            else:
+                break
 
         if results is None:
             raise exceptions.NoResult("We couldn't find any result")
@@ -239,6 +243,8 @@ async def gifchange(context):
 
                 if len(results.results) < 1:
                     results = None
+                else:
+                    break
 
             if results is None:
                 raise exceptions.NoResult("We couldn't find any result")
@@ -268,6 +274,8 @@ async def gifchange(context):
 
                 if len(results.results) < 1:
                     results = None
+                else:
+                    break
 
             if results is None:
                 raise exceptions.NoResult("We couldn't find any result")
