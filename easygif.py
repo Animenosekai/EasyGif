@@ -94,7 +94,7 @@ async def gif(context):
             result = results.random
             embed = Embed(author=context.author, command=".gif {query}".format(query=_search), image=result, provider=provider)
             message = await context.send(embed=embed.dump())
-            log("← '.gif {query}'; Response: {result}".format(query=_search, result=result))
+            log("← '.gif {query}'; Response: {result}".format(query=_search, result=result), level=LogLevels.INFO)
 
             ### UPDATING THE DATABASE
             mongo_users.update_one({"_id": context.author.id}, {"$push": {"responses": {
@@ -148,7 +148,7 @@ async def gifrandom(context):
             result = results.random
             embed = Embed(author=context.author, command=".gifrandom", image=result, provider=provider)
             message = await context.send(embed=embed.dump())
-            log("← '.gifrandom'; Response: {result}".format(result=result))
+            log("← '.gifrandom'; Response: {result}".format(result=result), level=LogLevels.INFO)
 
             ### UPDATING THE DATABASE
             mongo_users.update_one({"_id": context.author.id}, {"$push": {"responses": {
@@ -193,7 +193,7 @@ async def gifdelete(context):
             await message.delete()
             await status.edit(content='{mention} Last GIF deleted! ✨'.format(mention=context.author.mention))
 
-            log("← '.gifdelete' for {user}".format(user=context.author))
+            log("← '.gifdelete' for {user}".format(user=context.author), level=LogLevels.INFO)
 
             ### UPDATING THE DATABASE
             mongo_users.update_one({"_id": context.author.id}, {"$pull": {"responses": data}}, upsert=True)
@@ -296,7 +296,7 @@ async def gifchange(context):
             await asyncio.sleep(3)
             await status.delete()
 
-            log("← '.gifchange' for {user}".format(user=context.author))
+            log("← '.gifchange' for {user}".format(user=context.author), level=LogLevels.INFO)
 
             ### UPDATING THE DATABASE
             mongo_users.update_one({"_id": context.author.id}, {"$pull": {"responses": data}}, upsert=True)
@@ -354,7 +354,7 @@ async def gifstats(context):
             embed.set_footer(text='© Anime no Sekai - 2021')
             await context.send(embed=embed)
 
-            log("← '.gifstats' for {user}".format(user=context.author))
+            log("← '.gifstats' for {user}".format(user=context.author), level=LogLevels.INFO)
             
     except Exception as err:
         await error_handler(context=context, error=err)
@@ -372,7 +372,7 @@ async def gifclear(context):
 
             await status.edit(content='{mention} We successfully cleared your data! ✨'.format(mention=context.author.mention))
 
-            log("← '.gifclear' for {user}".format(user=context.author))
+            log("← '.gifclear' for {user}".format(user=context.author), level=LogLevels.INFO)
 
     except Exception as err:
         await error_handler(context=context, error=err)
@@ -391,7 +391,7 @@ async def gifhelp(context):
             embed.set_footer(text="© Anime no Sekai — 2021")
             await context.send(embed=embed)
 
-            log("← '.gifhelp' for {user}".format(user=context.author))
+            log("← '.gifhelp' for {user}".format(user=context.author), level=LogLevels.INFO)
 
     except Exception as err:
         await error_handler(context=context, error=err)
@@ -416,7 +416,7 @@ async def easygifstats(context):
 
             await context.send(embed=embed)
 
-            log("← '.easygifstats' for {user}".format(user=context.author))
+            log("← '.easygifstats' for {user}".format(user=context.author), level=LogLevels.INFO)
 
     except Exception as err:
         await error_handler(context=context, error=err)
@@ -432,7 +432,7 @@ async def gifinvite(context):
             await context.send(content="I'm glad that you wanna share me with your friends!")
             await context.send(content="Here is the link: **https://bit.ly/invite-easygif**")
 
-            log("← '.gifinvite' for {user}".format(user=context.author))
+            log("← '.gifinvite' for {user}".format(user=context.author), level=LogLevels.INFO)
 
     except Exception as err:
         await error_handler(context=context, error=err)
