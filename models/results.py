@@ -1,3 +1,4 @@
+from utils.log import log
 from utils import exceptions
 from random import choice
 from models.provider import Provider, Giphy, Tenor
@@ -5,6 +6,7 @@ from models.provider import Provider, Giphy, Tenor
 
 class Results():
     def __init__(self, query: str, results, provider: Provider, random: bool = False) -> None:
+        log("Parsing the results for {provider}".format(provider=provider.__repr__()))
         self.query = str(query)
         self.is_random = bool(random) # either a bool or an int
 
@@ -30,4 +32,5 @@ class Results():
 
     @property
     def random(self):
+        log("Getting a random GIF from the {length} available GIFs".format(length=len(self.results)))
         return choice(self.results)

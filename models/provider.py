@@ -14,6 +14,12 @@ class Provider():
             "logo": self.logo
         }
 
+    def __repr__(self) -> str:
+        return "<Provider: {name}>".format(name=self.provider.title())
+
+    def __str__(self) -> str:
+        return self.provider
+
 
 class Giphy(Provider):
     def __init__(self) -> None:

@@ -1,5 +1,6 @@
 import sys
-from config import EASYGIF_VERSION, DEBUG_MODE
+
+from config import DEBUG_MODE, EASYGIF_VERSION
 
 if "-v" in sys.argv or "--version" in sys.argv:
     print(f"EasyGif {EASYGIF_VERSION}")
@@ -23,7 +24,9 @@ Args:
     quit()
 
 
-from easygif import client
 from __protected import DISCORD_BOT_TOKEN
+from easygif import client
+from utils.log import log
 
+log("Running the Discord Bot")
 client.run(DISCORD_BOT_TOKEN)

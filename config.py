@@ -3,7 +3,7 @@ import sys
 from __protected import GIPHY_API_KEY, TENOR_API_KEY
 
 # Information
-EASYGIF_VERSION = "2.0 (Nightly)"
+EASYGIF_VERSION = "2.0 (Beta)"
 COMMAND_PREFIX = "."
 
 # Emoji Reaction

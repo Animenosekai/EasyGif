@@ -20,6 +20,7 @@ class Embed():
                       colour=discord.Colour.blue())
 
     def dump(self):
+        log("Creating a discord.Embed object")
         embed = discord.Embed(
             title='From {}'.format(self.author),
             description="Command: `{command}`".format(command=self.command),
