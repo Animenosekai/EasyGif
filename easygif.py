@@ -56,7 +56,8 @@ async def error_handler(context, error):
 async def gif(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
 
             content = escape_markdown(context.message.clean_content)[len(COMMAND_PREFIX) + 4:] # removing .gif and cleaning up the content
             _search = str(content)
@@ -114,7 +115,8 @@ async def gif(context):
 async def gifrandom(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
 
             now = datetime.utcnow().timestamp()
 
@@ -175,7 +177,8 @@ def get_last_message(context):
 async def gifdelete(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
             status = await context.send('{mention} Searching your last GIF...'.format(mention=context.author.mention))
 
             log("→ '.gifdelete' came from the server {server} (user: {user})".format(server=context.guild, user=context.author), level=LogLevels.INFO)
@@ -206,7 +209,8 @@ async def gifdelete(context):
 async def gifchange(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
             status = await context.send('{mention} Changing your last GIF...'.format(mention=context.author.mention))
 
             now = datetime.utcnow().timestamp()
@@ -309,7 +313,8 @@ async def gifchange(context):
 async def gifstats(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
 
             log("→ '.gifstats' came from the server {server} (user: {user})".format(server=context.guild, user=context.author), level=LogLevels.INFO)
 
@@ -363,7 +368,8 @@ async def gifstats(context):
 async def gifclear(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
             status = await context.send('{mention} Clearing your data...'.format(mention=context.author.mention))
 
             log("→ '.gifclear' came from the server {server} (user: {user})".format(server=context.guild, user=context.author), level=LogLevels.INFO)
@@ -381,7 +387,8 @@ async def gifclear(context):
 async def gifhelp(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
 
             log("→ '.gifhelp' came from the server {server} (user: {user})".format(server=context.guild, user=context.author), level=LogLevels.INFO)
 
@@ -401,7 +408,8 @@ async def gifhelp(context):
 async def easygifstats(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
 
             log("→ '.easygifstats' came from the server {server} (user: {user})".format(server=context.guild, user=context.author), level=LogLevels.INFO)
 
@@ -425,7 +433,8 @@ async def easygifstats(context):
 async def gifinvite(context):
     try:
         async with context.typing():
-            await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
+            if ROGER_REACTION is not None:
+                await context.message.add_reaction(ROGER_REACTION) # REACT TO SHOW THAT THE BOT HAS UNDESTAND HIS COMMAND
 
             log("→ '.gifinvite' came from the server {server} (user: {user})".format(server=context.guild, user=context.author), level=LogLevels.INFO)
 
